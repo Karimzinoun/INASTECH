@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOUSS-PHYTO — Gestion Agricole</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- ════════ LOGIN ════════ -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-bg-pattern"></div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+      <h1>SOUSS-PHYTO</h1>
+      <p>Gestion Agricole Professionnelle</p>
+    </div>
+    <div class="login-form">
+      <div class="form-group">
+        <label><i class="fa-solid fa-user"></i> Nom d'utilisateur</label>
+        <input type="text" id="loginUsername" placeholder="Entrez votre identifiant" />
+      </div>
+      <div class="form-group">
+        <label><i class="fa-solid fa-lock"></i> Mot de passe</label>
+        <div class="pass-wrap">
+          <input type="password" id="loginPassword" placeholder="••••••••" />
+          <button class="toggle-pass" type="button" onclick="togglePass()">
+            <i class="fa-solid fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+      </div>
+      <div id="loginError" class="login-error hidden"></div>
+      <button class="btn-login" type="button" onclick="doLogin()">
+        <i class="fa-solid fa-right-to-bracket"></i> Connexion
+      </button>
+    </div>
+    <div class="login-footer">Créé par INASTECH +212661777702</div>
+  </div>
+</div>
+
+<!-- ════════ APP ════════ -->
+<div id="appShell" class="app-shell hidden">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-leaf"></i></div>
+        <span class="brand-name">SOUSS-PHYTO</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div class="sidebar-user" id="sidebarUser"></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-label">Principal</span>
+        <a class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+          <i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Stock</span>
+        <a class="nav-item" data-page="products" onclick="navigateTo('products')">
+          <i class="fa-solid fa-boxes-stacked"></i><span>Produits</span></a>
+        <a class="nav-item" data-page="scanner" onclick="navigateTo('scanner')">
+          <i class="fa-solid fa-barcode"></i><span>Scanner</span></a>
+        <a class="nav-item" data-page="stock-movements" onclick="navigateTo('stock-movements')">
+          <i class="fa-solid fa-arrow-right-arrow-left"></i><span>Mouvements Stock</span></a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Commercial</span>
+        <a class="nav-item" data-page="clients" onclick="navigateTo('clients')">
+          <i class="fa-solid fa-users"></i><span>Clients</span></a>
+        <a class="nav-item" data-page="quotes" onclick="navigateTo('quotes')">
+          <i class="fa-solid fa-file-lines"></i><span>Devis</span></a>
+        <a class="nav-item" data-page="delivery-notes" onclick="navigateTo('delivery-notes')">
+          <i class="fa-solid fa-truck"></i><span>Bons de Livraison</span></a>
+        <a class="nav-item" data-page="invoices" onclick="navigateTo('invoices')">
+          <i class="fa-solid fa-file-invoice"></i><span>Factures</span></a>
+        <a class="nav-item" data-page="payments" onclick="navigateTo('payments')">
+          <i class="fa-solid fa-money-bill-wave"></i><span>Règlements</span></a>
+        <a class="nav-item" data-page="returns" onclick="navigateTo('returns')">
+          <i class="fa-solid fa-rotate-left"></i><span>Retours</span></a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Administration</span>
+        <a class="nav-item" data-page="users" onclick="navigateTo('users')">
+          <i class="fa-solid fa-users-gear"></i><span>Utilisateurs</span></a>
+        <a class="nav-item" data-page="history" onclick="navigateTo('history')">
+          <i class="fa-solid fa-clock-rotate-left"></i><span>Historique</span></a>
+        <a class="nav-item" data-page="backup" onclick="navigateTo('backup')">
+          <i class="fa-solid fa-database"></i><span>Sauvegarde</span></a>
+      </div>
+    </nav>
+    <div class="sidebar-bottom">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fa-solid fa-moon" id="themeIcon"></i><span>Mode sombre</span>
+      </button>
+      <button class="btn-logout" onclick="doLogout()">
+        <i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mob-menu-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <div class="page-title" id="pageTitle">Dashboard</div>
+      </div>
+      <div class="topbar-right">
+        <div class="search-global">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="globalSearch" placeholder="Recherche rapide..." oninput="globalSearchFn(this.value)" />
+          <div class="search-results hidden" id="searchResults"></div>
+        </div>
+        <button class="notif-btn" onclick="toggleNotifications()">
+          <i class="fa-solid fa-bell"></i>
+          <span class="notif-badge hidden" id="notifBadge">0</span>
+        </button>
+        <div class="user-avatar" id="topbarAvatar">A</div>
+      </div>
+    </header>
+
+    <!-- Notif panel -->
+    <div class="notif-panel hidden" id="notifPanel">
+      <div class="notif-header">
+        <span>Notifications</span>
+        <button onclick="clearNotifications()">Tout effacer</button>
+      </div>
+      <div class="notif-list" id="notifList"></div>
+    </div>
+
+    <!-- PAGES -->
+    <div class="page-container" id="pageContainer">
+
+      <!-- DASHBOARD -->
+      <section id="page-dashboard" class="page active">
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="chart-header"><h3>Ventes Mensuelles (6 mois)</h3></div>
+            <canvas id="chartSales" height="110"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header"><h3>Répartition par Catégorie</h3></div>
+            <canvas id="chartStock" height="110"></canvas>
+          </div>
+        </div>
+        <div class="dash-bottom">
+          <div class="dash-card"><h3><i class="fa-solid fa-star"></i> Meilleurs Clients</h3><div id="topClientsList"></div></div>
+          <div class="dash-card"><h3><i class="fa-solid fa-fire"></i> Produits les Plus Vendus</h3><div id="topProductsList"></div></div>
+          <div class="dash-card"><h3><i class="fa-solid fa-triangle-exclamation"></i> Alertes</h3><div id="alertsList"></div></div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="page-products" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="productSearch" placeholder="🔍 Rechercher un produit..." oninput="filterProducts()" />
+            <select class="select-filter" id="productCatFilter" onchange="filterProducts()">
+              <option value="">Toutes typologies</option>
+              <option>Phytosanitaire</option><option>Engrais</option>
+              <option>Irrigation</option><option>Plastique serre</option>
+              <option>Ficelle</option><option>Goutteurs</option><option>Accessoires agricoles</option>
+            </select>
+            <select class="select-filter" id="productStockFilter" onchange="filterProducts()">
+              <option value="">Tout le stock</option>
+              <option value="low">Stock faible</option>
+              <option value="out">Rupture</option>
+              <option value="expire">Expirant</option>
+            </select>
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openProductModal()"><i class="fa-solid fa-plus"></i> Nouveau Produit</button>
+            <button class="btn-secondary" onclick="exportProductsExcel()"><i class="fa-solid fa-file-excel"></i> Excel</button>
+            <button class="btn-secondary" onclick="openLabelModal()" title="Imprimer étiquettes QR"><i class="fa-solid fa-tag"></i> Étiquettes</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Photo</th><th>Code</th><th>Produit</th><th>Catégorie</th><th>Stock</th><th>Prix Vente</th><th>Lot</th><th>Expiration</th><th>Actions</th></tr></thead>
+            <tbody id="productsBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="productsPagination"></div>
+      </section>
+
+      <!-- SCANNER -->
+      <section id="page-scanner" class="page">
+        <div class="scanner-wrap">
+          <div class="scanner-card">
+            <h2><i class="fa-solid fa-barcode"></i> Scanner / Recherche Produit</h2>
+            <div class="scan-input-row">
+              <input type="text" id="scanInput" class="scan-input" placeholder="Scanner code barre ou saisir ID produit..." onkeydown="if(event.key==='Enter') searchByScan()" />
+              <button class="btn-primary" onclick="searchByScan()"><i class="fa-solid fa-magnifying-glass"></i> Rechercher</button>
+            </div>
+            <div id="scanResult" class="scan-result hidden"></div>
+            <div style="margin-top:1rem;text-align:right">
+              <button class="btn-secondary" onclick="openLabelModal()">
+                <i class="fa-solid fa-tag"></i> Imprimer étiquettes produits
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STOCK MOVEMENTS -->
+      <section id="page-stock-movements" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="mvtSearch" placeholder="🔍 Rechercher..." oninput="filterMovements()" />
+            <select class="select-filter" id="mvtTypeFilter" onchange="filterMovements()">
+              <option value="">Tous types</option><option value="in">Entrée</option><option value="out">Sortie</option><option value="return">Retour</option>
+            </select>
+            <input type="date" class="select-filter" id="mvtDateFilter" onchange="filterMovements()" />
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openStockMvtModal('in')"><i class="fa-solid fa-arrow-down"></i> Entrée Stock</button>
+            <button class="btn-danger" onclick="openStockMvtModal('out')"><i class="fa-solid fa-arrow-up"></i> Sortie Stock</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Date</th><th>Type</th><th>Produit</th><th>Qté</th><th>Lot</th><th>Utilisateur</th><th>Motif</th></tr></thead>
+            <tbody id="movementsBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="movementsPagination"></div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section id="page-clients" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="clientSearch" placeholder="🔍 Rechercher un client..." oninput="filterClients()" />
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openClientModal()"><i class="fa-solid fa-plus"></i> Nouveau Client</button>
+            <button class="btn-secondary" onclick="exportClientsExcel()"><i class="fa-solid fa-file-excel"></i> Excel</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Société</th><th>Responsable</th><th>Téléphone</th><th>Ville</th><th>ICE</th><th>Solde</th><th>Actions</th></tr></thead>
+            <tbody id="clientsBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="clientsPagination"></div>
+      </section>
+
+      <!-- QUOTES -->
+      <section id="page-quotes" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="quoteSearch" placeholder="🔍 Rechercher..." oninput="filterQuotes()" />
+            <select class="select-filter" id="quoteStatusFilter" onchange="filterQuotes()">
+              <option value="">Tous statuts</option><option value="draft">Brouillon</option><option value="validated">Validé</option><option value="invoiced">Facturé</option>
+            </select>
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openDocModal('quote')"><i class="fa-solid fa-plus"></i> Nouveau Devis</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>N°</th><th>Date</th><th>Client</th><th>HT</th><th>TVA</th><th>TTC</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody id="quotesBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="quotesPagination"></div>
+      </section>
+
+      <!-- DELIVERY NOTES -->
+      <section id="page-delivery-notes" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="blSearch" placeholder="🔍 Rechercher..." oninput="filterDeliveryNotes()" />
+            <select class="select-filter" id="blStatusFilter" onchange="filterDeliveryNotes()">
+              <option value="">Tous statuts</option>
+              <option value="pending">En attente</option>
+              <option value="partial">Partiel</option>
+              <option value="delivered">Livré</option>
+              <option value="invoiced">Facturé</option>
+            </select>
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openBLModal()"><i class="fa-solid fa-plus"></i> Nouveau Bon de Livraison</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>N°</th><th>Date</th><th>Client</th><th>Devis Source</th><th>Total TTC</th><th>Adresse Livraison</th><th>Statut</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="blBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="blPagination"></div>
+      </section>
+
+      <!-- INVOICES -->
+      <section id="page-invoices" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="invoiceSearch" placeholder="🔍 Rechercher..." oninput="filterInvoices()" />
+            <select class="select-filter" id="invoiceStatusFilter" onchange="filterInvoices()">
+              <option value="">Tous statuts</option><option value="pending">En attente</option><option value="partial">Partiel</option><option value="paid">Payé</option>
+            </select>
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openDocModal('invoice')"><i class="fa-solid fa-plus"></i> Nouvelle Facture</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>N°</th><th>Date</th><th>Client</th><th>TTC</th><th>Payé</th><th>Reste</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody id="invoicesBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="invoicesPagination"></div>
+      </section>
+
+      <!-- PAYMENTS -->
+      <section id="page-payments" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="paySearch" placeholder="🔍 Rechercher..." oninput="filterPayments()" />
+            <input type="date" class="select-filter" id="payDateFilter" onchange="filterPayments()" />
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openPaymentModal()"><i class="fa-solid fa-plus"></i> Nouveau Règlement</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Date</th><th>Client</th><th>Facture</th><th>Montant</th><th>Mode</th><th>Référence</th><th>Actions</th></tr></thead>
+            <tbody id="paymentsBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="paymentsPagination"></div>
+      </section>
+
+      <!-- RETURNS -->
+      <section id="page-returns" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="returnSearch" placeholder="🔍 Rechercher..." oninput="filterReturns()" />
+            <select class="select-filter" id="returnTypeFilter" onchange="filterReturns()">
+              <option value="">Tous types</option><option value="refund">Remboursement</option><option value="exchange">Échange</option><option value="credit">Avoir</option>
+            </select>
+          </div>
+          <div class="action-btns">
+            <button class="btn-primary" onclick="openReturnModal()"><i class="fa-solid fa-plus"></i> Nouveau Retour</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Date</th><th>Client</th><th>Produit</th><th>Qté</th><th>Type</th><th>Motif</th><th>Montant</th><th>Actions</th></tr></thead>
+            <tbody id="returnsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- USERS -->
+      <section id="page-users" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="userSearch" placeholder="🔍 Rechercher..." oninput="filterUsers()" />
+          </div>
+          <div class="action-btns" id="addUserBtnWrap">
+            <button class="btn-primary" onclick="openUserModal()"><i class="fa-solid fa-plus"></i> Nouvel Utilisateur</button>
+          </div>
+        </div>
+        <div class="users-grid" id="usersGrid"></div>
+      </section>
+
+      <!-- HISTORY -->
+      <section id="page-history" class="page">
+        <div class="page-actions">
+          <div class="filter-row">
+            <input type="text" class="search-input" id="histSearch" placeholder="🔍 Rechercher..." oninput="filterHistory()" />
+            <select class="select-filter" id="histModuleFilter" onchange="filterHistory()">
+              <option value="">Tous modules</option>
+              <option>Produits</option><option>Clients</option><option>Devis</option>
+              <option>Factures</option><option>Stock</option><option>Utilisateurs</option>
+            </select>
+            <input type="date" class="select-filter" id="histDateFilter" onchange="filterHistory()" />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Date/Heure</th><th>Utilisateur</th><th>Module</th><th>Action</th><th>Détails</th></tr></thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="historyPagination"></div>
+      </section>
+
+      <!-- BACKUP -->
+      <section id="page-backup" class="page">
+        <div class="backup-grid">
+          <div class="backup-card">
+            <div class="backup-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+            <h3>Exporter les Données</h3>
+            <p>Sauvegarder toutes les données en fichier JSON.</p>
+            <button class="btn-primary" onclick="exportBackup()"><i class="fa-solid fa-download"></i> Exporter JSON</button>
+          </div>
+          <div class="backup-card">
+            <div class="backup-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Importer les Données</h3>
+            <p>Restaurer les données depuis un fichier JSON.</p>
+            <label class="btn-secondary" style="cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1.1rem;border-radius:8px;border:1.5px solid var(--border)">
+              <i class="fa-solid fa-upload"></i> Importer JSON
+              <input type="file" accept=".json" style="display:none" onchange="importBackup(event)" />
+            </label>
+          </div>
+          <div class="backup-card">
+            <div class="backup-icon"><i class="fa-solid fa-trash-can"></i></div>
+            <h3>Réinitialiser</h3>
+            <p>Effacer toutes les données (irréversible).</p>
+            <button class="btn-danger" onclick="confirmReset()"><i class="fa-solid fa-rotate"></i> Réinitialiser</button>
+          </div>
+          <div class="backup-card">
+            <div class="backup-icon"><i class="fa-solid fa-circle-info"></i></div>
+            <h3>Informations Système</h3>
+            <div id="sysInfo" class="sys-info"></div>
+          </div>
+        </div>
+
+        <!-- Import Excel — Admin uniquement -->
+        <div id="xlsxAdminZone" style="margin-top:1.5rem;display:none">
+          <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem">
+            <i class="fa-solid fa-file-excel" style="color:#16a34a"></i> Import Excel (Admin)
+          </h3>
+          <div class="backup-grid">
+            <div class="backup-card">
+              <div class="backup-icon" style="font-size:2rem;color:#16a34a"><i class="fa-solid fa-boxes-stacked"></i></div>
+              <h3>Importer Produits</h3>
+              <p>Charger des produits depuis un fichier Excel (.xlsx).</p>
+              <div style="display:flex;flex-direction:column;gap:.5rem;align-items:center">
+                <label class="btn-primary" style="cursor:pointer">
+                  <i class="fa-solid fa-upload"></i> Choisir fichier Excel
+                  <input type="file" accept=".xlsx,.xls" style="display:none" onchange="importExcelProducts(event)" />
+                </label>
+                <button class="btn-secondary" onclick="downloadExcelTemplate('products')">
+                  <i class="fa-solid fa-download"></i> Télécharger template
+                </button>
+              </div>
+            </div>
+            <div class="backup-card">
+              <div class="backup-icon" style="font-size:2rem;color:#3b82f6"><i class="fa-solid fa-users"></i></div>
+              <h3>Importer Clients</h3>
+              <p>Charger des clients depuis un fichier Excel (.xlsx).</p>
+              <div style="display:flex;flex-direction:column;gap:.5rem;align-items:center">
+                <label class="btn-primary" style="cursor:pointer">
+                  <i class="fa-solid fa-upload"></i> Choisir fichier Excel
+                  <input type="file" accept=".xlsx,.xls" style="display:none" onchange="importExcelClients(event)" />
+                </label>
+                <button class="btn-secondary" onclick="downloadExcelTemplate('clients')">
+                  <i class="fa-solid fa-download"></i> Télécharger template
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div><!-- /page-container -->
+  </main>
+</div><!-- /appShell -->
+
+<!-- ════════ MODALS ════════ -->
+<div id="modalOverlay" class="modal-overlay hidden" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-head">
+      <h2 id="modalTitle">—</h2>
+      <button class="modal-close" onclick="closeModalById('modalOverlay')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<div id="confirmOverlay" class="modal-overlay hidden">
+  <div class="modal-box confirm-box">
+    <div class="modal-head">
+      <h2>Confirmation</h2>
+      <button class="modal-close" onclick="closeModalById('confirmOverlay')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="confirmMessage"></div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModalById('confirmOverlay')">Annuler</button>
+      <button class="btn-danger" id="confirmBtn">Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- Scripts chargés en dernier, après le DOM -->
+<script>
+  // Chargement dynamique des librairies avec fallback
+  function loadScript(src, cb) {
+    var s = document.createElement('script');
+    s.src = src; s.async = false;
+    s.onload = cb || function(){};
+    s.onerror = function(){ console.warn('Lib non chargée:', src); if(cb) cb(); };
+    document.body.appendChild(s);
+  }
+  // Charge les librairies dans l'ordre, puis lance app.js
+  loadScript('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js', function() {
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', function() {
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js', function() {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js', function() {
+          loadScript('app.js', function() {
+            // Lance l'application une fois app.js chargé
+            if (typeof gestrmInit === 'function') gestrmInit();
+            else console.error('gestrmInit non trouvée');
+          });
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>
