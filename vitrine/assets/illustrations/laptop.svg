@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Ordinateur portable">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".55" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbd5e1"/><stop offset="1" stop-color="#94a3b8"/></linearGradient>
+  </defs>
+  <ellipse cx="200" cy="262" rx="160" ry="10" fill="#0f172a" opacity=".12"/>
+  <rect x="88" y="52" width="224" height="150" rx="10" fill="#1e293b"/>
+  <rect x="98" y="62" width="204" height="130" rx="4" fill="#0b1530"/>
+  <rect x="98" y="62" width="204" height="14" fill="#13234a"/>
+  <circle cx="106" cy="69" r="2.5" fill="#ef4444"/><circle cx="114" cy="69" r="2.5" fill="#f59e0b"/><circle cx="122" cy="69" r="2.5" fill="#22c55e"/>
+  <rect x="98" y="76" width="30" height="116" fill="#0f1d3f"/>
+  <rect x="106" y="86" width="14" height="4" rx="2" fill="#22d3ee"/>
+  <rect x="106" y="98" width="14" height="4" rx="2" fill="#334155"/>
+  <rect x="106" y="110" width="14" height="4" rx="2" fill="#334155"/>
+  <rect x="106" y="122" width="14" height="4" rx="2" fill="#334155"/>
+  <rect x="136" y="84" width="48" height="26" rx="4" fill="#13234a"/><rect x="142" y="98" width="30" height="5" rx="2.5" fill="url(#g)"/>
+  <rect x="190" y="84" width="48" height="26" rx="4" fill="#13234a"/><rect x="196" y="98" width="22" height="5" rx="2.5" fill="url(#g)"/>
+  <rect x="244" y="84" width="50" height="26" rx="4" fill="#13234a"/><rect x="250" y="98" width="34" height="5" rx="2.5" fill="url(#g)"/>
+  <rect x="136" y="116" width="158" height="68" rx="4" fill="#13234a"/>
+  <g fill="url(#g)">
+    <rect x="148" y="150" width="12" height="28" rx="2"/><rect x="168" y="138" width="12" height="40" rx="2"/>
+    <rect x="188" y="156" width="12" height="22" rx="2"/><rect x="208" y="130" width="12" height="48" rx="2"/>
+    <rect x="228" y="144" width="12" height="34" rx="2"/><rect x="248" y="124" width="12" height="54" rx="2"/>
+    <rect x="268" y="136" width="12" height="42" rx="2"/>
+  </g>
+  <path d="M60 206h280l-14 34a10 10 0 0 1-9 6H83a10 10 0 0 1-9-6z" fill="url(#body)"/>
+  <rect x="60" y="202" width="280" height="8" rx="3" fill="#e2e8f0"/>
+  <rect x="172" y="202" width="56" height="5" rx="2.5" fill="#94a3b8"/>
+  <g fill="#64748b" opacity=".55">
+    <rect x="96" y="216" width="208" height="4" rx="2"/><rect x="100" y="224" width="200" height="4" rx="2"/>
+  </g>
+  <rect x="170" y="232" width="60" height="8" rx="3" fill="#7d8ba0"/>
+</svg>
