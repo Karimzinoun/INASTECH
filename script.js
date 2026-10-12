@@ -77,7 +77,7 @@ faqItems.forEach((item) =>
   })
 );
 
-// Formulaire -> message WhatsApp pré-rempli
+// Formulaire -> message pré-rempli, envoyé par WhatsApp ou par e-mail
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
@@ -85,7 +85,12 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
     `Bonjour, je m'appelle ${data.get("nom")}.\n` +
     `Projet : ${data.get("type")}\n\n` +
     `${data.get("message")}`;
-  window.open(`https://wa.me/212661999902?text=${encodeURIComponent(texte)}`, "_blank");
+  if (e.submitter && e.submitter.dataset.via === "email") {
+    const sujet = `Demande de devis — ${data.get("type")}`;
+    window.location.href = `mailto:Z.Karim@iainas.com?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(texte)}`;
+  } else {
+    window.open(`https://wa.me/212661999902?text=${encodeURIComponent(texte)}`, "_blank");
+  }
 });
 
 // Année du pied de page

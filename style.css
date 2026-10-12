@@ -301,6 +301,12 @@ h3 { font-size: 1.2rem; font-weight: 600; }
 .form textarea { resize: vertical; }
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(124,58,237,.12); }
 .form small { text-align: center; color: var(--muted); font-size: .8rem; }
+.form-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-actions .btn { padding: 14px 16px; font-size: .8rem; }
+.btn-outline { border-color: var(--primary); color: var(--primary); background: transparent; }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.contact-list a[href^="mailto"] { word-break: break-all; }
+@media (max-width: 600px) { .form-actions { grid-template-columns: 1fr; } }
 
 /* ---------- Pied de page ---------- */
 .footer { background: var(--dark); color: #9ca3af; padding: 70px 0 0; font-size: .95rem; }

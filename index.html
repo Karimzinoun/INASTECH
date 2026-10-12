@@ -290,6 +290,12 @@
             </li>
             <li>
               <span class="ci">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
+              </span>
+              <div><small>E-mail</small><a href="mailto:Z.Karim@iainas.com">Z.Karim@iainas.com</a></div>
+            </li>
+            <li>
+              <span class="ci">
                 <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
               </span>
               <div><small>Adresse</small><span>Agadir, Maroc</span></div>
@@ -314,8 +320,11 @@
           <label>Votre message
             <textarea name="message" rows="4" required placeholder="Décrivez votre projet en quelques mots…"></textarea>
           </label>
-          <button type="submit" class="btn btn-primary">Envoyer via WhatsApp</button>
-          <small>Votre message s'ouvrira dans WhatsApp, prêt à être envoyé.</small>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-via="whatsapp">Envoyer via WhatsApp</button>
+            <button type="submit" class="btn btn-outline" data-via="email">Envoyer par e-mail</button>
+          </div>
+          <small>Votre message s'ouvrira dans WhatsApp ou dans votre messagerie, prêt à être envoyé.</small>
         </form>
       </div>
     </section>
@@ -343,6 +352,7 @@
         <h4>Contact</h4>
         <a href="tel:+212661999902">06 61 99 99 02</a>
         <a href="https://wa.me/212661999902" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:Z.Karim@iainas.com">Z.Karim@iainas.com</a>
         <span>Agadir, Maroc</span>
       </div>
     </div>
