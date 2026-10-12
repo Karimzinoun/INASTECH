@@ -51,6 +51,7 @@
         </ul>
       </div>
       <div class="hero-visual" aria-hidden="true">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=75" alt="">
         <div class="code-card">
           <div class="code-top"><i></i><i></i><i></i><span>iainas.com</span></div>
 <pre><code><span class="k">const</span> <span class="v">projet</span> = {
@@ -74,34 +75,46 @@
       <h2>Ce que je peux faire pour vous</h2>
       <div class="grid grid-3">
         <article class="card reveal">
-          <div class="icon">🖥️</div>
-          <h3>Site vitrine</h3>
-          <p>Un site professionnel pour présenter votre activité, vos services et être trouvé facilement par vos clients.</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=70" alt="Site vitrine sur ordinateur" loading="lazy"><div class="icon">🖥️</div></div>
+          <div class="card-body">
+            <h3>Site vitrine</h3>
+            <p>Un site professionnel pour présenter votre activité, vos services et être trouvé facilement par vos clients.</p>
+          </div>
         </article>
         <article class="card reveal">
-          <div class="icon">🛒</div>
-          <h3>Boutique en ligne</h3>
-          <p>Vendez vos produits sur Internet avec un catalogue clair, un panier et une gestion des commandes simple.</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=70" alt="Commerce et vente" loading="lazy"><div class="icon">🛒</div></div>
+          <div class="card-body">
+            <h3>Boutique en ligne</h3>
+            <p>Vendez vos produits sur Internet avec un catalogue clair, un panier et une gestion des commandes simple.</p>
+          </div>
         </article>
         <article class="card reveal">
-          <div class="icon">⚙️</div>
-          <h3>Application web</h3>
-          <p>Outils sur mesure : réservations, tableaux de bord, espaces clients, gestion interne…</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70" alt="Tableau de bord web" loading="lazy"><div class="icon">⚙️</div></div>
+          <div class="card-body">
+            <h3>Application web</h3>
+            <p>Outils sur mesure : réservations, tableaux de bord, espaces clients, gestion interne…</p>
+          </div>
         </article>
         <article class="card reveal">
-          <div class="icon">📱</div>
-          <h3>Responsive design</h3>
-          <p>Un affichage parfait sur téléphone, tablette et ordinateur — là où se trouvent vos clients.</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600&q=70" alt="Site affiché sur téléphone" loading="lazy"><div class="icon">📱</div></div>
+          <div class="card-body">
+            <h3>Responsive design</h3>
+            <p>Un affichage parfait sur téléphone, tablette et ordinateur — là où se trouvent vos clients.</p>
+          </div>
         </article>
         <article class="card reveal">
-          <div class="icon">🔍</div>
-          <h3>Référencement (SEO)</h3>
-          <p>Optimisation pour Google afin d'apparaître dans les recherches locales, à Agadir et ailleurs.</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70" alt="Statistiques et graphiques" loading="lazy"><div class="icon">🔍</div></div>
+          <div class="card-body">
+            <h3>Référencement (SEO)</h3>
+            <p>Optimisation pour Google afin d'apparaître dans les recherches locales, à Agadir et ailleurs.</p>
+          </div>
         </article>
         <article class="card reveal">
-          <div class="icon">🛠️</div>
-          <h3>Maintenance & refonte</h3>
-          <p>Mises à jour, corrections, amélioration de la vitesse ou modernisation d'un site existant.</p>
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=70" alt="Code source à l'écran" loading="lazy"><div class="icon">🛠️</div></div>
+          <div class="card-body">
+            <h3>Maintenance & refonte</h3>
+            <p>Mises à jour, corrections, amélioration de la vitesse ou modernisation d'un site existant.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -110,8 +123,10 @@
   <!-- A PROPOS -->
   <section class="section alt" id="apropos">
     <div class="container about">
-      <div class="about-img reveal" aria-hidden="true">
-        <div class="avatar">IA</div>
+      <div class="about-img reveal">
+        <!-- Remplacez cette image par votre propre photo : images/moi.jpg -->
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=75" alt="Espace de travail du développeur" loading="lazy">
+        <div class="about-badge">📍 Agadir</div>
       </div>
       <div class="reveal">
         <p class="eyebrow">À propos</p>
@@ -133,10 +148,10 @@
       <p class="eyebrow">Méthode</p>
       <h2>Comment ça se passe ?</h2>
       <ol class="steps">
-        <li class="reveal"><span>1</span><h3>Échange</h3><p>On discute de votre projet, vos objectifs et votre budget. Devis gratuit.</p></li>
-        <li class="reveal"><span>2</span><h3>Maquette</h3><p>Je vous propose un design que l'on ajuste ensemble avant de développer.</p></li>
-        <li class="reveal"><span>3</span><h3>Développement</h3><p>Je construis votre site, et vous suivez l'avancement en temps réel.</p></li>
-        <li class="reveal"><span>4</span><h3>Mise en ligne</h3><p>Votre site est publié sur votre domaine, sécurisé (HTTPS) et suivi.</p></li>
+        <li class="reveal"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=70" alt="Réunion autour d'un projet" loading="lazy"><div class="step-body"><span>1</span><h3>Échange</h3><p>On discute de votre projet, vos objectifs et votre budget. Devis gratuit.</p></div></li>
+        <li class="reveal"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=70" alt="Croquis de maquette" loading="lazy"><div class="step-body"><span>2</span><h3>Maquette</h3><p>Je vous propose un design que l'on ajuste ensemble avant de développer.</p></div></li>
+        <li class="reveal"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=500&q=70" alt="Développement sur ordinateur" loading="lazy"><div class="step-body"><span>3</span><h3>Développement</h3><p>Je construis votre site, et vous suivez l'avancement en temps réel.</p></div></li>
+        <li class="reveal"><img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&w=500&q=70" alt="Site en ligne sur téléphone" loading="lazy"><div class="step-body"><span>4</span><h3>Mise en ligne</h3><p>Votre site est publié sur votre domaine, sécurisé (HTTPS) et suivi.</p></div></li>
       </ol>
     </div>
   </section>
@@ -151,6 +166,18 @@
         <span>PHP</span><span>Laravel</span><span>WordPress</span><span>MySQL</span><span>Git & GitHub</span>
         <span>SEO</span><span>Figma</span>
       </div>
+    </div>
+  </section>
+
+  <!-- GALERIE DEFILANTE -->
+  <section class="gallery" aria-label="Galerie">
+    <div class="gallery-track">
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&h=340&q=70" alt="Code à l'écran" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&h=340&q=70" alt="Travail en équipe" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&h=340&q=70" alt="Application sur mobile" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=500&h=340&q=70" alt="Planification de projet" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=500&h=340&q=70" alt="Écrans de développement" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&h=340&q=70" alt="Ordinateur portable" loading="lazy">
     </div>
   </section>
 

@@ -30,6 +30,10 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+// Galerie défilante : on duplique les images pour une boucle continue
+const track = document.querySelector(".gallery-track");
+if (track) track.innerHTML += track.innerHTML;
+
 // Formulaire -> message WhatsApp pré-rempli
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
