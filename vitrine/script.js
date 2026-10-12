@@ -1,5 +1,5 @@
 /**
- * INASTECH — site vitrine
+ * IAINAS Technologie — site vitrine
  */
 'use strict';
 
@@ -52,7 +52,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
   error.hidden = true;
 
   const text =
-    `Bonjour INASTECH,\n\n` +
+    `Bonjour IAINAS Technologie,\n\n` +
     `Nom : ${name}\n` +
     `Téléphone : ${phone}\n` +
     `Service : ${f.service.value}\n\n` +
