@@ -89,7 +89,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
     const sujet = `Demande de devis — ${data.get("type")}`;
     window.location.href = `mailto:Z.Karim@iainas.com?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(texte)}`;
   } else {
-    window.open(`https://wa.me/212661999902?text=${encodeURIComponent(texte)}`, "_blank");
+    window.open(`https://wa.me/212661777702?text=${encodeURIComponent(texte)}`, "_blank");
   }
 });
 
