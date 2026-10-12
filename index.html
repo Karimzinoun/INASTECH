@@ -4,230 +4,377 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IAINAS — Développeur Web Freelance à Agadir</title>
-  <meta name="description" content="IAINAS, développeur web freelance à Agadir : création de sites vitrines, e-commerce et applications web modernes, rapides et adaptés au mobile.">
+  <meta name="description" content="IAINAS, développeur web freelance à Agadir : sites vitrines, boutiques en ligne et applications web sur mesure, modernes, rapides et adaptés au mobile.">
+  <meta name="theme-color" content="#08090f">
   <meta property="og:title" content="IAINAS — Développeur Web Freelance à Agadir">
-  <meta property="og:description" content="Sites vitrines, e-commerce et applications web sur mesure.">
+  <meta property="og:description" content="Sites vitrines, boutiques en ligne et applications web sur mesure.">
   <meta property="og:url" content="https://iainas.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=70">
   <link rel="canonical" href="https://iainas.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- Barre de progression + halo du curseur -->
+  <div class="progress" id="progress"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#accueil" class="logo"><span class="logo-mark">&lt;/&gt;</span> IAINAS</a>
+      <a href="#accueil" class="logo" aria-label="IAINAS, accueil">
+        <span class="logo-dot"></span>IAINAS
+      </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#apropos">À propos</a>
-        <a href="#methode">Méthode</a>
-        <a href="#technos">Technologies</a>
-        <a href="#contact" class="btn btn-small">Me contacter</a>
+        <a href="#services" data-link>Services</a>
+        <a href="#apropos" data-link>À propos</a>
+        <a href="#methode" data-link>Méthode</a>
+        <a href="#faq" data-link>FAQ</a>
+        <a href="#contact" class="nav-cta magnetic">Démarrer un projet <span>→</span></a>
       </nav>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="accueil">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <p class="badge">📍 Développeur web freelance · Agadir</p>
-        <h1>Je crée des sites web qui font <span class="grad">grandir votre activité</span>.</h1>
-        <p class="lead">Sites vitrines, boutiques en ligne et applications web sur mesure : modernes, rapides, adaptés au mobile et bien référencés sur Google.</p>
-        <div class="hero-cta">
-          <a href="https://wa.me/212661999902?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20un%20site%20web." target="_blank" rel="noopener" class="btn">💬 Devis gratuit sur WhatsApp</a>
-          <a href="#services" class="btn btn-ghost">Voir mes services</a>
-        </div>
-        <ul class="hero-points">
-          <li>✔ Devis gratuit</li>
-          <li>✔ Livraison rapide</li>
-          <li>✔ Suivi après mise en ligne</li>
-        </ul>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <img class="hero-photo" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=75" alt="">
-        <div class="code-card">
-          <div class="code-top"><i></i><i></i><i></i><span>iainas.com</span></div>
-<pre><code><span class="k">const</span> <span class="v">projet</span> = {
-  client: <span class="s">"Vous"</span>,
-  objectif: <span class="s">"Plus de clients"</span>,
-  design: <span class="s">"Moderne"</span>,
-  mobile: <span class="b">true</span>,
-  rapide: <span class="b">true</span>,
-};
+  <main>
 
-<span class="f">lancer</span>(projet); <span class="c">// 🚀</span></code></pre>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="accueil">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="grid-lines"></div>
+      </div>
+
+      <div class="hero-photos" aria-hidden="true">
+        <figure class="float f1" data-depth="18"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=520&q=70" alt=""></figure>
+        <figure class="float f2" data-depth="34"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=420&q=70" alt=""></figure>
+        <figure class="float f3" data-depth="26"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=420&q=70" alt=""></figure>
+      </div>
+
+      <div class="container hero-content">
+        <p class="kicker anim-up"><span class="pulse"></span>Disponible pour de nouveaux projets · Agadir, Maroc</p>
+
+        <h1 class="hero-title">
+          <span class="line"><span>Je conçois des</span></span>
+          <span class="line"><span class="rotator" id="rotator">
+            <em class="active">sites vitrines</em>
+            <em>boutiques</em>
+            <em>applications</em>
+            <em>sites rapides</em>
+          </span></span>
+          <span class="line"><span>qui vous ressemblent.</span></span>
+        </h1>
+
+        <div class="hero-bottom anim-up">
+          <p class="lead">Développeur web freelance, j'aide les entreprises et entrepreneurs à exister en ligne avec des sites <strong>rapides</strong>, <strong>élégants</strong> et pensés pour <strong>convertir</strong>.</p>
+          <div class="hero-cta">
+            <a href="https://wa.me/212661999902?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20un%20site%20web." target="_blank" rel="noopener" class="btn btn-primary magnetic">Devis gratuit <span class="btn-ico">↗</span></a>
+            <a href="#services" class="btn btn-ghost" data-link>Découvrir</a>
+          </div>
         </div>
+      </div>
+
+      <a href="#services" class="scroll-hint" data-link aria-label="Défiler vers les services"><span></span></a>
+    </section>
+
+    <!-- ============ BANDEAU DEFILANT ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Sites vitrines</span><i>✦</i><span>E-commerce</span><i>✦</i><span>Applications web</span><i>✦</i><span>Responsive</span><i>✦</i><span>SEO</span><i>✦</i><span>Maintenance</span><i>✦</i>
       </div>
     </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="container">
-      <p class="eyebrow">Services</p>
-      <h2>Ce que je peux faire pour vous</h2>
-      <div class="grid grid-3">
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=70" alt="Site vitrine sur ordinateur" loading="lazy"><div class="icon">🖥️</div></div>
-          <div class="card-body">
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">01</span>
+          <div>
+            <p class="eyebrow">Services</p>
+            <h2 class="split">Ce que je fais<br>pour vous</h2>
+          </div>
+          <p class="section-intro reveal">Une offre claire, du premier site jusqu'à l'application complète. Survolez un service pour le découvrir.</p>
+        </header>
+
+        <div class="services" id="servicesList">
+          <article class="srv reveal" data-img="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=70">
+            <span class="srv-num">01</span>
             <h3>Site vitrine</h3>
-            <p>Un site professionnel pour présenter votre activité, vos services et être trouvé facilement par vos clients.</p>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=70" alt="Commerce et vente" loading="lazy"><div class="icon">🛒</div></div>
-          <div class="card-body">
+            <p>Présentez votre activité et vos services avec un site professionnel qui inspire confiance.</p>
+            <span class="srv-arrow">↗</span>
+            <img class="srv-thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=70" alt="Site vitrine sur ordinateur" loading="lazy">
+          </article>
+          <article class="srv reveal" data-img="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=640&q=70">
+            <span class="srv-num">02</span>
             <h3>Boutique en ligne</h3>
-            <p>Vendez vos produits sur Internet avec un catalogue clair, un panier et une gestion des commandes simple.</p>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=70" alt="Tableau de bord web" loading="lazy"><div class="icon">⚙️</div></div>
-          <div class="card-body">
+            <p>Catalogue, panier, paiement et gestion des commandes : vendez partout, à toute heure.</p>
+            <span class="srv-arrow">↗</span>
+            <img class="srv-thumb" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=640&q=70" alt="Commerce et vente" loading="lazy">
+          </article>
+          <article class="srv reveal" data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=640&q=70">
+            <span class="srv-num">03</span>
             <h3>Application web</h3>
-            <p>Outils sur mesure : réservations, tableaux de bord, espaces clients, gestion interne…</p>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600&q=70" alt="Site affiché sur téléphone" loading="lazy"><div class="icon">📱</div></div>
-          <div class="card-body">
-            <h3>Responsive design</h3>
-            <p>Un affichage parfait sur téléphone, tablette et ordinateur — là où se trouvent vos clients.</p>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70" alt="Statistiques et graphiques" loading="lazy"><div class="icon">🔍</div></div>
-          <div class="card-body">
-            <h3>Référencement (SEO)</h3>
-            <p>Optimisation pour Google afin d'apparaître dans les recherches locales, à Agadir et ailleurs.</p>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="card-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=70" alt="Code source à l'écran" loading="lazy"><div class="icon">🛠️</div></div>
-          <div class="card-body">
+            <p>Réservations, tableaux de bord, espaces clients : des outils sur mesure pour gagner du temps.</p>
+            <span class="srv-arrow">↗</span>
+            <img class="srv-thumb" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=640&q=70" alt="Tableau de bord web" loading="lazy">
+          </article>
+          <article class="srv reveal" data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=640&q=70">
+            <span class="srv-num">04</span>
+            <h3>Référencement SEO</h3>
+            <p>Soyez trouvé sur Google, à Agadir comme ailleurs, grâce à un site optimisé dès sa conception.</p>
+            <span class="srv-arrow">↗</span>
+            <img class="srv-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=640&q=70" alt="Statistiques et graphiques" loading="lazy">
+          </article>
+          <article class="srv reveal" data-img="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=640&q=70">
+            <span class="srv-num">05</span>
             <h3>Maintenance & refonte</h3>
-            <p>Mises à jour, corrections, amélioration de la vitesse ou modernisation d'un site existant.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- A PROPOS -->
-  <section class="section alt" id="apropos">
-    <div class="container about">
-      <div class="about-img reveal">
-        <!-- Remplacez cette image par votre propre photo : images/moi.jpg -->
-        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=75" alt="Espace de travail du développeur" loading="lazy">
-        <div class="about-badge">📍 Agadir</div>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">À propos</p>
-        <h2>Un développeur proche de vous</h2>
-        <p>Je suis développeur web freelance basé à <strong>Agadir</strong>. J'accompagne les entrepreneurs, commerçants, artisans et entreprises qui veulent une présence en ligne professionnelle, sans complications.</p>
-        <p>Vous avez un interlocuteur unique, du premier échange jusqu'à la mise en ligne — et après. Je vous explique chaque étape simplement, en français ou en arabe.</p>
-        <div class="stats">
-          <div><strong>100%</strong><span>Sur mesure</span></div>
-          <div><strong>Mobile</strong><span>First</span></div>
-          <div><strong>24h</strong><span>Délai de réponse</span></div>
+            <p>Mises à jour, corrections, vitesse, sécurité — ou une nouvelle vie pour un site vieillissant.</p>
+            <span class="srv-arrow">↗</span>
+            <img class="srv-thumb" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=640&q=70" alt="Code source à l'écran" loading="lazy">
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="srv-preview" id="srvPreview" aria-hidden="true"><img alt=""></div>
+    </section>
 
-  <!-- METHODE -->
-  <section class="section" id="methode">
-    <div class="container">
-      <p class="eyebrow">Méthode</p>
-      <h2>Comment ça se passe ?</h2>
-      <ol class="steps">
-        <li class="reveal"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=70" alt="Réunion autour d'un projet" loading="lazy"><div class="step-body"><span>1</span><h3>Échange</h3><p>On discute de votre projet, vos objectifs et votre budget. Devis gratuit.</p></div></li>
-        <li class="reveal"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=70" alt="Croquis de maquette" loading="lazy"><div class="step-body"><span>2</span><h3>Maquette</h3><p>Je vous propose un design que l'on ajuste ensemble avant de développer.</p></div></li>
-        <li class="reveal"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=500&q=70" alt="Développement sur ordinateur" loading="lazy"><div class="step-body"><span>3</span><h3>Développement</h3><p>Je construis votre site, et vous suivez l'avancement en temps réel.</p></div></li>
-        <li class="reveal"><img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&w=500&q=70" alt="Site en ligne sur téléphone" loading="lazy"><div class="step-body"><span>4</span><h3>Mise en ligne</h3><p>Votre site est publié sur votre domaine, sécurisé (HTTPS) et suivi.</p></div></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- TECHNOS -->
-  <section class="section alt" id="technos">
-    <div class="container">
-      <p class="eyebrow">Technologies</p>
-      <h2>Des outils modernes et fiables</h2>
-      <div class="tags reveal">
-        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Node.js</span>
-        <span>PHP</span><span>Laravel</span><span>WordPress</span><span>MySQL</span><span>Git & GitHub</span>
-        <span>SEO</span><span>Figma</span>
+    <!-- ============ CHIFFRES ============ -->
+    <section class="stats-band">
+      <div class="container stats">
+        <div class="stat reveal"><strong data-count="100" data-suffix="%">0</strong><span>Sur mesure,<br>aucun modèle tout fait</span></div>
+        <div class="stat reveal"><strong data-count="24" data-suffix="h">0</strong><span>Délai de réponse<br>maximum</span></div>
+        <div class="stat reveal"><strong data-count="4">0</strong><span>Étapes claires<br>du devis au lancement</span></div>
+        <div class="stat reveal"><strong data-count="1">0</strong><span>Interlocuteur unique<br>du début à la fin</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALERIE DEFILANTE -->
-  <section class="gallery" aria-label="Galerie">
-    <div class="gallery-track">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&h=340&q=70" alt="Code à l'écran" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&h=340&q=70" alt="Travail en équipe" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&h=340&q=70" alt="Application sur mobile" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=500&h=340&q=70" alt="Planification de projet" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=500&h=340&q=70" alt="Écrans de développement" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&h=340&q=70" alt="Ordinateur portable" loading="lazy">
-    </div>
-  </section>
+    <!-- ============ A PROPOS ============ -->
+    <section class="section" id="apropos">
+      <div class="container about">
+        <div class="about-visual reveal">
+          <div class="about-frame">
+            <!-- Remplacez cette image par votre propre photo -->
+            <img class="parallax" data-speed="0.12" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=75" alt="Espace de travail du développeur" loading="lazy">
+          </div>
+          <div class="about-sticker"><span>Basé à</span><strong>Agadir</strong></div>
+        </div>
 
-  <!-- CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="cta reveal">
-        <h2>Prêt à lancer votre site ?</h2>
-        <p>Parlez-moi de votre projet, je vous réponds rapidement avec une proposition adaptée.</p>
-        <a href="https://wa.me/212661999902?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20un%20site%20web." target="_blank" rel="noopener" class="btn btn-light">💬 Discuter sur WhatsApp</a>
+        <div class="about-text">
+          <header class="section-head compact">
+            <span class="section-num">02</span>
+            <div>
+              <p class="eyebrow">À propos</p>
+              <h2 class="split">Un développeur<br>proche de vous</h2>
+            </div>
+          </header>
+          <p class="reveal">Je suis développeur web freelance basé à <strong>Agadir</strong>. J'accompagne commerçants, artisans, indépendants et entreprises qui veulent une présence en ligne professionnelle — sans jargon et sans mauvaise surprise.</p>
+          <p class="reveal">Vous avez un seul interlocuteur, du premier échange jusqu'à la mise en ligne, et après. Je vous explique chaque étape simplement, en français ou en arabe.</p>
+          <ul class="values">
+            <li class="reveal"><span>◆</span><div><h3>Écoute</h3><p>Votre métier d'abord, la technique ensuite.</p></div></li>
+            <li class="reveal"><span>◆</span><div><h3>Transparence</h3><p>Devis clair, délais tenus, suivi en temps réel.</p></div></li>
+            <li class="reveal"><span>◆</span><div><h3>Qualité</h3><p>Code propre, site rapide, sécurisé et durable.</p></div></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="section alt" id="contact">
-    <div class="container contact">
-      <div class="reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>Travaillons ensemble</h2>
-        <p>Une question, un projet ? Contactez-moi directement :</p>
-        <ul class="contact-list">
-          <li><span>📞</span><a href="tel:+212661999902">06 61 99 99 02</a></li>
-          <li><span>💬</span><a href="https://wa.me/212661999902" target="_blank" rel="noopener">WhatsApp : 06 61 99 99 02</a></li>
-          <li><span>📍</span>Agadir, Maroc</li>
-          <li><span>🌐</span><a href="https://iainas.com">iainas.com</a></li>
-        </ul>
+    <!-- ============ METHODE ============ -->
+    <section class="section section-alt" id="methode">
+      <div class="container process">
+        <div class="process-side">
+          <header class="section-head compact">
+            <span class="section-num">03</span>
+            <div>
+              <p class="eyebrow">Méthode</p>
+              <h2 class="split">Comment<br>ça se passe ?</h2>
+            </div>
+          </header>
+          <p class="section-intro reveal">Un parcours simple en quatre étapes. Vous savez toujours où en est votre projet.</p>
+          <a href="https://wa.me/212661999902" target="_blank" rel="noopener" class="btn btn-ghost reveal">Poser une question</a>
+        </div>
+
+        <ol class="timeline" id="timeline">
+          <li class="tl-progress" aria-hidden="true"><span id="tlFill"></span></li>
+          <li class="step reveal">
+            <span class="step-dot">1</span>
+            <div class="step-card">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=70" alt="Réunion autour d'un projet" loading="lazy">
+              <div><h3>Échange</h3><p>On discute de votre activité, vos objectifs et votre budget. Je vous envoie un devis gratuit et détaillé.</p></div>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">2</span>
+            <div class="step-card">
+              <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=700&q=70" alt="Croquis de maquette" loading="lazy">
+              <div><h3>Maquette</h3><p>Je dessine l'apparence de votre site. On l'ajuste ensemble jusqu'à ce qu'elle vous plaise.</p></div>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">3</span>
+            <div class="step-card">
+              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=70" alt="Développement sur ordinateur" loading="lazy">
+              <div><h3>Développement</h3><p>Je construis le site, rapide et adapté au mobile. Vous suivez l'avancement en direct.</p></div>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-dot">4</span>
+            <div class="step-card">
+              <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&w=700&q=70" alt="Site en ligne sur téléphone" loading="lazy">
+              <div><h3>Mise en ligne</h3><p>Publication sur votre nom de domaine, en HTTPS, puis suivi et accompagnement.</p></div>
+            </div>
+          </li>
+        </ol>
       </div>
-      <form class="form reveal" id="contactForm">
-        <label>Votre nom<input type="text" name="nom" required placeholder="Ex : Ahmed"></label>
-        <label>Type de projet
-          <select name="type">
-            <option>Site vitrine</option>
-            <option>Boutique en ligne</option>
-            <option>Application web</option>
-            <option>Refonte / maintenance</option>
-            <option>Autre</option>
-          </select>
-        </label>
-        <label>Votre message<textarea name="message" rows="4" required placeholder="Décrivez votre projet en quelques mots…"></textarea></label>
-        <button type="submit" class="btn">Envoyer via WhatsApp</button>
-        <small>Le message s'ouvrira dans WhatsApp, prêt à être envoyé.</small>
-      </form>
-    </div>
-  </section>
+    </section>
 
+    <!-- ============ GALERIE ============ -->
+    <section class="gallery" aria-label="Galerie">
+      <div class="gallery-row" data-dir="left">
+        <div class="gallery-track">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=520&h=340&q=70" alt="Code à l'écran" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=520&h=340&q=70" alt="Travail en équipe" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=520&h=340&q=70" alt="Application sur mobile" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=520&h=340&q=70" alt="Planification de projet" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=520&h=340&q=70" alt="Écrans de développement" loading="lazy">
+        </div>
+      </div>
+      <div class="gallery-row" data-dir="right">
+        <div class="gallery-track">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=520&h=340&q=70" alt="Ordinateur portable" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=520&h=340&q=70" alt="Design d'interface" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=520&h=340&q=70" alt="Analyse de données" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=520&h=340&q=70" alt="Bureau collaboratif" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=520&h=340&q=70" alt="Interface mobile" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TECHNOLOGIES ============ -->
+    <section class="section" id="technos">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">04</span>
+          <div>
+            <p class="eyebrow">Boîte à outils</p>
+            <h2 class="split">Des technologies<br>modernes et fiables</h2>
+          </div>
+        </header>
+        <div class="tech">
+          <span class="reveal">HTML5</span><span class="reveal">CSS3</span><span class="reveal">JavaScript</span><span class="reveal">React</span>
+          <span class="reveal">Node.js</span><span class="reveal">PHP</span><span class="reveal">Laravel</span><span class="reveal">WordPress</span>
+          <span class="reveal">MySQL</span><span class="reveal">Git & GitHub</span><span class="reveal">Figma</span><span class="reveal">SEO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section-alt" id="faq">
+      <div class="container faq-wrap">
+        <header class="section-head compact">
+          <span class="section-num">05</span>
+          <div>
+            <p class="eyebrow">Questions fréquentes</p>
+            <h2 class="split">Vous vous<br>demandez…</h2>
+          </div>
+        </header>
+        <div class="faq">
+          <details class="reveal">
+            <summary>Combien coûte un site web ?<span></span></summary>
+            <div class="faq-a"><p>Chaque projet est différent : le prix dépend du nombre de pages et des fonctionnalités. Je vous envoie un devis gratuit et détaillé après un premier échange, sans engagement.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>En combien de temps mon site sera-t-il prêt ?<span></span></summary>
+            <div class="faq-a"><p>Un site vitrine prend généralement quelques semaines. Le délai exact est fixé dans le devis et dépend surtout de la rapidité avec laquelle les contenus (textes, photos) sont prêts.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Mon site sera-t-il adapté aux téléphones ?<span></span></summary>
+            <div class="faq-a"><p>Oui, toujours. Chaque site est conçu d'abord pour le mobile, puis adapté aux tablettes et ordinateurs.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Pourrai-je modifier mon site moi-même ?<span></span></summary>
+            <div class="faq-a"><p>Si vous le souhaitez, oui : je peux mettre en place une interface simple pour modifier vos textes et photos, et je vous montre comment l'utiliser.</p></div>
+          </details>
+          <details class="reveal">
+            <summary>Vous occupez-vous du nom de domaine et de l'hébergement ?<span></span></summary>
+            <div class="faq-a"><p>Oui. Je vous conseille sur le choix du domaine et de l'hébergement, et je m'occupe de toute la mise en ligne.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact-section" id="contact">
+      <div class="contact-bg" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow center">Contact</p>
+        <h2 class="big-title split">Parlons de<br><span class="grad">votre projet.</span></h2>
+
+        <div class="contact-grid">
+          <div class="contact-cards">
+            <a class="c-card reveal" href="https://wa.me/212661999902" target="_blank" rel="noopener">
+              <span class="c-ico wa">
+                <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.2.6 4.4 1.7 6.3L3 29l7.3-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.7 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.2-4.2-.3-.4c-1-1.6-1.5-3.5-1.5-5.4C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.4z"/></svg>
+              </span>
+              <span><small>WhatsApp</small>06 61 99 99 02</span><i>↗</i>
+            </a>
+            <a class="c-card reveal" href="tel:+212661999902">
+              <span class="c-ico">📞</span>
+              <span><small>Téléphone</small>06 61 99 99 02</span><i>↗</i>
+            </a>
+            <div class="c-card reveal">
+              <span class="c-ico">📍</span>
+              <span><small>Localisation</small>Agadir, Maroc</span>
+            </div>
+          </div>
+
+          <form class="form reveal" id="contactForm">
+            <div class="field">
+              <input type="text" id="nom" name="nom" required placeholder=" ">
+              <label for="nom">Votre nom</label>
+            </div>
+            <div class="chips" role="radiogroup" aria-label="Type de projet">
+              <label><input type="radio" name="type" value="Site vitrine" checked><span>Site vitrine</span></label>
+              <label><input type="radio" name="type" value="Boutique en ligne"><span>Boutique</span></label>
+              <label><input type="radio" name="type" value="Application web"><span>Application</span></label>
+              <label><input type="radio" name="type" value="Refonte / maintenance"><span>Refonte</span></label>
+            </div>
+            <div class="field">
+              <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+              <label for="message">Décrivez votre projet</label>
+            </div>
+            <button type="submit" class="btn btn-primary magnetic">Envoyer sur WhatsApp <span class="btn-ico">↗</span></button>
+            <small class="form-note">Votre message s'ouvre dans WhatsApp, prêt à être envoyé.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> IAINAS — Développeur web freelance à Agadir</span>
-      <a href="#accueil">Haut de page ↑</a>
+    <div class="container">
+      <div class="footer-top">
+        <p>Un projet en tête ? <a href="#contact" data-link>Écrivez-moi →</a></p>
+        <nav>
+          <a href="#services" data-link>Services</a>
+          <a href="#apropos" data-link>À propos</a>
+          <a href="#methode" data-link>Méthode</a>
+          <a href="#faq" data-link>FAQ</a>
+        </nav>
+      </div>
+      <div class="footer-word" aria-hidden="true">IAINAS</div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> IAINAS — Développeur web freelance à Agadir</span>
+        <a href="#accueil" data-link>Haut de page ↑</a>
+      </div>
     </div>
   </footer>
 
@@ -235,6 +382,7 @@
     <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.2.6 4.4 1.7 6.3L3 29l7.3-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.7 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.2-4.2-.3-.4c-1-1.6-1.5-3.5-1.5-5.4C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.4z"/></svg>
   </a>
 
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
